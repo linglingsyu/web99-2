@@ -47,7 +47,24 @@
 						<marquee>請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
 					</span>
 					<span style="width:18%; display:inline-block;">
+					<?php 
+							if(!empty($_SESSION['login'])){	
+								if($_SESSION['login']=="admin"){
+					?>
+									歡迎，<?= $_SESSION['login']; ?><br>
+									<button onclick="location.replace('admin.php')">管理</button>
+									<button onclick="location.replace('api/logout.php')">登出</button>
+					<?php
+								}else{
+					?>
+									歡迎<?= $_SESSION['login']; ?>
+									<button onclick="location.replace('api/logout.php')">登出</button>
+					<?php
+								}
+						}else{
+					?>
 						<a href="?do=login">會員登入</a>
+					<?php		} ?>
 					</span>
 					<div class="">
 						<!-- 內容區 -->

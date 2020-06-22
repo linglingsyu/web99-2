@@ -90,10 +90,10 @@ class DB
   public function q($sql){
     return $this->pdo->query($sql)->fetchAll();
   }
+}
 
-  public function to($url){
-    header("location:".$url);
-  }
+function to($url){
+  header("location:".$url);
 }
 
   // 判斷瀏覽人次
