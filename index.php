@@ -50,6 +50,16 @@
 						<a href="?do=login">會員登入</a>
 					</span>
 					<div class="">
+						<!-- 內容區 -->
+						<?php
+								$do = (!empty($_GET['do'])) ? $_GET['do'] : "main";
+								$file = "front/".$do.".php";
+								if(file_exists($file)){
+									include $file;
+								}else{
+									include "front/main.php";
+								}
+						?>
 					</div>
 				</div>
 			</div>

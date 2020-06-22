@@ -64,7 +64,7 @@ class DB
     if(!empty($arg['id'])){
       foreach($arg as $key=>$value){
         if($key != "id"){
-          $tmp[] = sprintf("`%s`='%s',$key,$value");
+          $tmp[] = sprintf("`%s`='%s'",$key,$value);
         }
       }
       $sql = "update `$this->table` set " . implode(",",$tmp) . " where `id` ='" . $arg['id'] . "'";
@@ -100,16 +100,15 @@ class DB
   $total = new DB('total');
   //先判斷有無今日的資料
   $chk = $total->find(['date'=>date("Y-m-d")]);
-
   if(empty($chk) && empty($_SESSION['visited'])){
-    //沒有今日資料&session是空的(今日第一次拜訪) 要新增今日資料
+      //沒有今日資料&session是空的(今日第一次拜訪) 要新增今日資料
     $total->save(["date"=>date("Y-m-d"),'total'=>1]);
     $_SESSION['visited'] = 1;
   }elseif(empty($chk) && !empty($_SESSION['visited'])){
-    //沒有今日資料但拜訪過了(直接改日期 但瀏覽器沒關 or 電腦沒關放到隔天) 要新增今日資料
+      //沒有今日資料但拜訪過了(直接改日期 但瀏覽器沒關 or 電腦沒關放到隔天) 要新增今日資料
     $total->save(["date"=>date("Y-m-d"),'total'=>1]);
   }elseif( !empty($chk) && empty($_SESSION['visited'])){
-    //有今天的資料但沒session 表示是新來的 人數要+1
+      //有今天的資料但沒session 表示是新來的 人數要+1
     $chk['total']++;
     $total->save($chk);
     $_SESSION['visited'] = 1;
