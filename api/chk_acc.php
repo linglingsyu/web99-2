@@ -7,9 +7,11 @@ $acc = $_GET['acc'];
 $chk= $db->find(['acc'=>$acc]);
 
 if(empty($chk)){
+  //沒資料
   echo 0;
 }else{
   echo 1;
+  //有資料
 }
 
 

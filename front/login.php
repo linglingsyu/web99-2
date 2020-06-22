@@ -11,7 +11,7 @@
     </tr>
     <tr>
       <td><input type="button" value="登入" onclick="login()"><input type="reset" value="清除"></td>
-      <td><a href="?do=forget">忘記密碼</a> | <a href="=do=reg">尚未註冊</a></td>
+      <td><a href="?do=forget">忘記密碼</a> | <a href="?do=reg">尚未註冊</a></td>
     </tr>
   </table>
   </fieldset>
@@ -23,8 +23,6 @@
       //利用Jq來取acc這個變數的值 =  document.querySelector("#acc").value 
       let acc = $("#acc").val();
       let pw = $("#pw").val();
-      console.log(acc);
-      console.log(pw);
       if(acc=="" || pw==""){
         alert("帳號及密碼欄位不可為空白");
       }else{
