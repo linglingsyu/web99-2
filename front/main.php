@@ -10,13 +10,22 @@
     padding: 5px 10px;
     font-size: 1rem;
     border: 1px solid #000;
+    cursor: pointer;
+    background-color: #e5e4e4;
+    margin-right: -1px;
   }
   .post{
     width: 100%;
     border: 1px solid #000;
     font-size: 1rem;
     display: none;
+    margin-top: -1px;
   }
+  .bgc{
+    background-color: #ffffff;
+    border-bottom:1px solid #ffffff;
+  }
+
   .active{
     display: block;
   }
@@ -109,6 +118,8 @@
 <script>
   $(".type").on("click",function(){
    let p =  $(this).data('id');
+   $(".type").removeClass("bgc");
+   $(this).addClass("bgc");
    $(".post").removeClass("active");
    $("#p"+p).addClass("active");
   }) 
