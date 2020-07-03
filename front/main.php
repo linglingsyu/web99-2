@@ -32,7 +32,7 @@
 </style>
 
 <div class="container">
-  <div class="type" data-id="1" >健康新知</div> 
+  <div class="type bgc" data-id="1" >健康新知</div> 
   <div class="type" data-id="2" >菸害防治</div> 
   <div class="type" data-id="3" >癌症防治</div> 
   <div class="type" data-id="4" >慢性病防治</div> 
