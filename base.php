@@ -3,6 +3,7 @@
 date_default_timezone_set("Asia/Taipei");
 session_start();
 
+
 class DB
 {
   private $dsn = "mysql:host=localhost;charset=utf8;dbname=db88";
@@ -75,14 +76,16 @@ class DB
   }
 
   public function del($arg){
-      $sql = "delect from $this->table";
+      $sql = "delete from $this->table";
       if(is_array($arg)){
         foreach ($arg as $key => $value){
           $tmp[] = sprintf("`%s`='%s'",$key,$value);
         }
         $sql = $sql . " where " . implode(" && ",$tmp);
+        echo $sql;
       }else{
         $sql = $sql . " where `id` = " . "'" . $arg ."'";
+        echo $sql;
       }
       return $this->pdo->exec($sql);
   }
@@ -91,6 +94,7 @@ class DB
     return $this->pdo->query($sql)->fetchAll();
   }
 }
+
 
 function to($url){
   header("location:".$url);
@@ -118,7 +122,5 @@ function to($url){
   //   //有今天的資料,也有session->不用做事
  
   // }
-
-
 
 ?>
