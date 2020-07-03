@@ -27,7 +27,6 @@
 </fieldset>
 
 
-
 <script>
   showlist(1);
   function showlist(type){
