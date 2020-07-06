@@ -40,7 +40,7 @@
     $pages = ceil($total / $div);
     $now = (!empty($_GET['p'])) ? $_GET['p'] : 1;
     $start = ($now - 1) * $div;
-    $rows = $db->all([], "order by good desc limit $start,$div");
+    $rows = $db->all(["sh"=>1], "order by good desc limit $start,$div");
 
     foreach ($rows as $row) {
     ?>

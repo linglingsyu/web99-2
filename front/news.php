@@ -27,7 +27,7 @@
     $pages = ceil($total / $div);
     $now = (!empty($_GET['p'])) ? $_GET['p'] : 1;
     $start = ($now - 1) * $div;
-    $rows = $db->all([], " limit $start,$div");
+    $rows = $db->all(["sh"=>1], " limit $start,$div");
     $log = new DB('log');
     foreach ($rows as $row) {
     ?>
