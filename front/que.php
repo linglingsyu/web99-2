@@ -17,7 +17,7 @@
     ?>
     <tr class="ct">
       <td><?= $key+1 ?></td>
-      <td><?= $row['text'] ?></td>
+      <td style="text-align:left;"><?= $row['text'] ?></td>
       <td><?= $row['count'] ?></td>
       <td><a href="?do=result&q=<?= $row['id'] ?>">結果</a></td>
       <td>
